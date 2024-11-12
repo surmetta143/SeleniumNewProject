@@ -13,3 +13,11 @@ def driver():
     driver = webdriver.Chrome(service=service)
     yield driver
     driver.close()
+
+    
+@pytest.fixture(scope="module")
+def driver():
+    service = Service(CHROME_DRIVER_PATH)
+    driver = webdriver.Chrome(service=service)
+    yield driver
+    driver.close()
